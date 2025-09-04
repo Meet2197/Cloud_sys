@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-frontend
+  namespace: cloud-storage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-frontend
+  template:
+    metadata:
+      labels:
+        app: cloud-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: yourrepo/cloud-frontend:latest
+          env:
+            - name: NUXT_PUBLIC_API_BASE
+              value: http://cloud-backend:8000
+          ports:
+            - containerPort: 3000
