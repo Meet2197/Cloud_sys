@@ -2,7 +2,7 @@ import os, shutil, mimetypes
 from typing import Tuple
 from pathlib import Path
 
-STORAGE_DIR = os.getenv("STORAGE_DIR", "/data/blobs")
+STORAGE_DIR = os.getenv(STORAGE_DIR =  "/data/blobs")
 Path(STORAGE_DIR).mkdir(parents=True, exist_ok=True)
 
 def save_upload(file, dest_name: str) -> Tuple[str, int, str]:

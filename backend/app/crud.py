@@ -13,7 +13,7 @@ def list_folders(db: Session):
     return db.query(models.Folder).all()
 
 def create_file(db: Session, *, name: str, mime: str, size: int, path: str, kind: str, folder_id: Optional[int]):
-    f = models.File(name=name, mime_type=mime, size=size, path=path, kind=kind, folder_id=folder_id)
+    f = models.File(name=name, mime=mime, size=size, path=path, kind=kind, folder_id=folder_id)
     db.add(f)
     db.commit()
     db.refresh(f)
